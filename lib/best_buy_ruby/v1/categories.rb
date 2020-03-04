@@ -13,7 +13,7 @@ module BestBuyRuby
         @format = format
       end
 
-      attr_accessor :api_key, :format
+      attr_reader :api_key, :format
 
       def get_all(page: nil, page_size: nil)
         request_params = {

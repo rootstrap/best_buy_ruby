@@ -10,7 +10,7 @@ module BestBuyRuby
         end
       end
 
-      attr_accessor :header, :collection
+      attr_reader :header, :collection
     end
   end
 end

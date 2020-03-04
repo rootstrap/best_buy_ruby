@@ -14,7 +14,7 @@ module BestBuyRuby
         @canonical_url = canonical_url
       end
 
-      attr_accessor :from, :to, :current_page, :total, :total_pages,
+      attr_reader :from, :to, :current_page, :total, :total_pages,
                     :query_time, :total_time, :partial, :canonical_url
     end
   end
