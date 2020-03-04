@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     best_buy_ruby (0.1.0)
+      activesupport (~> 6.0.2.1)
+      rest-client (~> 2.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -98,17 +100,15 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    zeitwerk (2.2.2)
+    zeitwerk (2.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   best_buy_ruby!
   rake
   reek
-  rest-client
   rspec
   rubocop
   simplecov

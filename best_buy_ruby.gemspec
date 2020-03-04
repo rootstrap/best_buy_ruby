@@ -29,9 +29,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  # # Production dependencies
-  # spec.add_dependency 'rails', '~> 6.0'
+  # Production dependencies
+  spec.add_dependency 'rest-client', '~> 2.1.0'
+  spec.add_dependency 'activesupport', '~> 6.0.2.1'
 
+  # Development dependencies
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'reek'
   spec.add_development_dependency 'rspec'
