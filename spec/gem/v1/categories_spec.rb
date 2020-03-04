@@ -26,7 +26,7 @@ RSpec.describe BestBuyRuby::V1::Categories do
         query_time: '0.23',
         total_time: '0.40',
         partial: false,
-        canonical_url: '/v1/categories?format=json&apiKey=11111111',
+        canonical_url: '/v1/categories?format=json&apiKey=11111111'
       }
     end
 
@@ -40,27 +40,27 @@ RSpec.describe BestBuyRuby::V1::Categories do
         path: [
           {
             id: 'cat00000',
-            name: 'Best Buy',
+            name: 'Best Buy'
           },
           {
             id: 'abcat0010000',
-            name: 'Gift Ideas',
-          },
+            name: 'Gift Ideas'
+          }
         ],
         sub_categories: [
           {
             id: 'pcmcat1496256957402',
-            name: 'Top Tech Gifts',
+            name: 'Top Tech Gifts'
           },
           {
             id: 'pcmcat748301108075',
-            name: 'Stocking Stuffers',
+            name: 'Stocking Stuffers'
           },
           {
             id: 'pcmcat1487279818011',
-            name: "Mother's Day Gift Ideas",
-          },
-        ],
+            name: "Mother's Day Gift Ideas"
+          }
+        ]
       }
     end
 
@@ -74,34 +74,34 @@ RSpec.describe BestBuyRuby::V1::Categories do
         path: [
           {
             id: 'cat00000',
-            name: 'Best Buy',
+            name: 'Best Buy'
           },
           {
             id: 'abcat0100000',
-            name: 'TV & Home Theater',
-          },
+            name: 'TV & Home Theater'
+          }
         ],
         sub_categories: [
           {
             id: 'abcat0101000',
-            name: 'TVs',
+            name: 'TVs'
           },
           {
             id: 'abcat0103000',
-            name: 'Smart TVs & Devices',
+            name: 'Smart TVs & Devices'
           },
           {
             id: 'pcmcat158900050008',
-            name: 'Projectors & Screens',
-          },
-        ],
+            name: 'Projectors & Screens'
+          }
+        ]
       }
     end
 
     let(:categories) do
       [
         first_category,
-        second_category,
+        second_category
       ]
     end
 
@@ -113,19 +113,20 @@ RSpec.describe BestBuyRuby::V1::Categories do
     let(:request_params) do
       {
         apiKey: api_key,
-        format: format.to_s,
+        format: format.to_s
       }
     end
 
     before do
-      allow(RestClient).
-        to receive(:get).
-        with(BestBuyRuby::V1::Categories::API_URL, request_params).
-        and_return(api_response)
+      allow(RestClient)
+        .to receive(:get)
+        .with(BestBuyRuby::V1::Categories::API_URL, request_params)
+        .and_return(api_response)
     end
 
     it 'returns all the categories' do
       all_categories_response = subject.get_all
+
       expect(all_categories_response.header).to be_present
       expect(all_categories_response.collection.first.name).to eq(first_category_name)
       expect(all_categories_response.collection.second.name).to eq(second_category_name)
@@ -137,7 +138,7 @@ RSpec.describe BestBuyRuby::V1::Categories do
         {
           apiKey: api_key,
           format: format.to_s,
-          page_size: page_size,
+          page_size: page_size
         }
       end
       let(:categories) { [first_category] }
@@ -155,13 +156,15 @@ RSpec.describe BestBuyRuby::V1::Categories do
           apiKey: api_key,
           format: format.to_s,
           page_size: page_size,
-          page: page,
+          page: page
         }
       end
       let(:categories) { [second_category] }
 
       it 'returns only the categories of that page' do
-        expect(subject.get_all(page: page, page_size: page_size).collection.first.name).to eq second_category_name
+        categories_response = subject.get_all(page: page, page_size: page_size)
+
+        expect(categories_response.collection.first.name).to eq second_category_name
       end
     end
   end

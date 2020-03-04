@@ -1,7 +1,8 @@
 module BestBuyRuby
   module V1
     class CollectionHeader
-      def initialize(from:, to:, current_page:, total:, total_pages:, query_time:, total_time:, partial:, canonical_url:)
+      def initialize(from:, to:, current_page:, total:, total_pages:,
+                     query_time:, total_time:, partial:, canonical_url:)
         @from = from
         @to = to
         @current_page = current_page
@@ -13,7 +14,8 @@ module BestBuyRuby
         @canonical_url = canonical_url
       end
 
-      attr_accessor :from, :to, :current_page, :total, :total_pages, :query_time, :total_time, :partial, :canonical_url
+      attr_accessor :from, :to, :current_page, :total, :total_pages,
+                    :query_time, :total_time, :partial, :canonical_url
     end
   end
 end

@@ -18,16 +18,16 @@ RSpec.describe BestBuyRuby::V1::APIHelper do
               subCategories: [
                 {
                   id: 'abcat0010000',
-                  name: 'Gift Ideas',
-                },
-              ],
+                  name: 'Gift Ideas'
+                }
+              ]
             },
             {
               id: 'abcat0010000',
               name: 'Gift Ideas',
-              subCategories: [],
-            },
-          ],
+              subCategories: []
+            }
+          ]
         }
       )
     end
@@ -46,16 +46,16 @@ RSpec.describe BestBuyRuby::V1::APIHelper do
             sub_categories: [
               {
                 id: 'abcat0010000',
-                name: 'Gift Ideas',
-              },
-            ],
+                name: 'Gift Ideas'
+              }
+            ]
           },
           {
             id: 'abcat0010000',
             name: 'Gift Ideas',
-            sub_categories: [],
-          },
-        ],
+            sub_categories: []
+          }
+        ]
       }
     end
 

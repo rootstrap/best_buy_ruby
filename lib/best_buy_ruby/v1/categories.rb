@@ -20,20 +20,15 @@ module BestBuyRuby
           apiKey: api_key,
           format: format.to_s,
           page: page,
-          page_size: page_size,
+          page_size: page_size
         }.compact
         response = APIHelper.new.parse_response(RestClient.get(API_URL, request_params))
         header = response.except(:categories)
-        CollectionsResponse.new(header: header, collection: response[:categories], collection_type: Category)
-      end
-
-      private
-
-      def request_params
-        {
-          apiKey: api_key,
-          format: format.to_s,
-        }
+        CollectionsResponse.new(
+          header: header,
+          collection: response[:categories],
+          collection_type: Category
+        )
       end
     end
   end

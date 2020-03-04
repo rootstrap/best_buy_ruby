@@ -52,7 +52,7 @@ Metrics/LineLength:
 
 Metrics/ParameterLists:
   Max: 5
-  CountKeywordArgs: true
+  CountKeywordArgs: false
 
 Metrics/PerceivedComplexity:
   Max: 12
