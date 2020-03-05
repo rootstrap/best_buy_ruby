@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'rspec'
 require 'bundler/setup'
 require 'simplecov'
+
+require './lib/best_buy_ruby'
+require './spec/gem/shared_contexts/categories'
 
 SimpleCov.start do
   add_filter '/spec/'

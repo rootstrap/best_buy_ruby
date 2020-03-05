@@ -1,7 +1,8 @@
-require 'rspec'
-require './lib/best_buy_ruby'
+require './spec/spec_helper'
 
 RSpec.describe BestBuyRuby::Categories do
+  include_context 'categories'
+
   let(:api_key) { '11111111' }
   let(:format) { :json }
 
@@ -10,99 +11,7 @@ RSpec.describe BestBuyRuby::Categories do
   end
 
   describe '#get_all' do
-    let(:collection_header) do
-      {
-        from: 1,
-        to: 10,
-        current_page: 1,
-        total: 100,
-        total_pages: 10,
-        query_time: '0.23',
-        total_time: '0.40',
-        partial: false,
-        canonical_url: '/v1/categories?format=json&apiKey=11111111'
-      }
-    end
-
-    let(:first_category_name) { 'Gift Ideas' }
-    let(:first_category) do
-      {
-        id: 'abcat0010000',
-        name: first_category_name,
-        active: true,
-        url: 'https://www.bestbuy.com/site/electronics/gift-ideas/abcat0010000.c?id=abcat0010000&cmp=RMX-cat',
-        path: [
-          {
-            id: 'cat00000',
-            name: 'Best Buy'
-          },
-          {
-            id: 'abcat0010000',
-            name: 'Gift Ideas'
-          }
-        ],
-        sub_categories: [
-          {
-            id: 'pcmcat1496256957402',
-            name: 'Top Tech Gifts'
-          },
-          {
-            id: 'pcmcat748301108075',
-            name: 'Stocking Stuffers'
-          },
-          {
-            id: 'pcmcat1487279818011',
-            name: "Mother's Day Gift Ideas"
-          }
-        ]
-      }
-    end
-
-    let(:second_category_name) { 'TV & Home Theater' }
-    let(:second_category) do
-      {
-        id: 'abcat0100000',
-        name: second_category_name,
-        active: true,
-        url: 'https://www.bestbuy.com/site/electronics/tv-home-theater/abcat0100000.c?id=abcat0100000&cmp=RMX-cat',
-        path: [
-          {
-            id: 'cat00000',
-            name: 'Best Buy'
-          },
-          {
-            id: 'abcat0100000',
-            name: 'TV & Home Theater'
-          }
-        ],
-        sub_categories: [
-          {
-            id: 'abcat0101000',
-            name: 'TVs'
-          },
-          {
-            id: 'abcat0103000',
-            name: 'Smart TVs & Devices'
-          },
-          {
-            id: 'pcmcat158900050008',
-            name: 'Projectors & Screens'
-          }
-        ]
-      }
-    end
-
-    let(:categories) do
-      [
-        first_category,
-        second_category
-      ]
-    end
-
-    let(:api_response) do
-      hash_response = collection_header.merge(categories: categories)
-      JSON.generate(hash_response.deep_transform_keys { |key| key.to_s.camelcase(:lower) })
-    end
+    let(:api_response) { full_categories_response_json }
 
     let(:request_params) do
       {
@@ -122,8 +31,8 @@ RSpec.describe BestBuyRuby::Categories do
       all_categories_response = subject.get_all
 
       expect(all_categories_response.header).to be_present
-      expect(all_categories_response.collection.first.name).to eq(first_category_name)
-      expect(all_categories_response.collection.second.name).to eq(second_category_name)
+      expect(all_categories_response.collection.first.name).to eq(gift_ideas_category_name)
+      expect(all_categories_response.collection.second.name).to eq(tvs_category_name)
     end
 
     context 'when specifying page size' do
@@ -135,7 +44,7 @@ RSpec.describe BestBuyRuby::Categories do
           page_size: page_size
         }
       end
-      let(:categories) { [first_category] }
+      let(:categories) { [gift_ideas_category] }
 
       it 'returns as much categories as that page size' do
         expect(subject.get_all(page_size: page_size).collection.count).to eq page_size
@@ -153,12 +62,12 @@ RSpec.describe BestBuyRuby::Categories do
           page: page
         }
       end
-      let(:categories) { [second_category] }
+      let(:categories) { [tvs_category] }
 
       it 'returns only the categories of that page' do
         categories_response = subject.get_all(page: page, page_size: page_size)
 
-        expect(categories_response.collection.first.name).to eq second_category_name
+        expect(categories_response.collection.first.name).to eq tvs_category_name
       end
     end
   end
