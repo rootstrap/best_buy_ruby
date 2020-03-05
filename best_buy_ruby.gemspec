@@ -2,6 +2,7 @@
 
 require_relative 'lib/best_buy_ruby/base/version'
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.name          = 'best_buy_ruby'
   spec.version       = BestBuyRuby::Base::VERSION
@@ -30,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Production dependencies
-  spec.add_dependency 'rest-client', '~> 2.1.0'
   spec.add_dependency 'activesupport', '~> 6.0.2.1'
+  spec.add_dependency 'rest-client', '~> 2.1.0'
 
   # Development dependencies
   spec.add_development_dependency 'rake'
@@ -40,3 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'simplecov'
 end
+# rubocop:enable Metrics/BlockLength

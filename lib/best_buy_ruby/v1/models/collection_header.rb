@@ -15,7 +15,7 @@ module BestBuyRuby
       end
 
       attr_reader :from, :to, :current_page, :total, :total_pages,
-                    :query_time, :total_time, :partial, :canonical_url
+                  :query_time, :total_time, :partial, :canonical_url
     end
   end
 end
