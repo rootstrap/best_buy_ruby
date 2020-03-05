@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/best_buy_ruby/api_helper'
+require './lib/best_buy_ruby'
 
 RSpec.describe BestBuyRuby::APIHelper do
   describe '#parse_response' do

@@ -1,11 +1,5 @@
 require 'rspec'
-require './lib/best_buy_ruby/categories'
-require './lib/best_buy_ruby/models/category'
-require './lib/best_buy_ruby/models/collections_response'
-require './lib/best_buy_ruby/models/collection_header'
-require 'active_support/core_ext/hash'
-require 'active_support/core_ext/string'
-require 'active_support/core_ext/array'
+require './lib/best_buy_ruby'
 
 RSpec.describe BestBuyRuby::Categories do
   let(:api_key) { '11111111' }

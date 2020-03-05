@@ -1,7 +1,4 @@
-require 'rest-client'
-require './lib/best_buy_ruby/base_api'
-require './lib/best_buy_ruby/api_helper'
-require 'active_support/core_ext/hash'
+require './lib/best_buy_ruby'
 
 module BestBuyRuby
   class Categories

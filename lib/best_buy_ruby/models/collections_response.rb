@@ -1,4 +1,4 @@
-require './lib/best_buy_ruby/models/collection_header'
+require './lib/best_buy_ruby'
 
 module BestBuyRuby
   class CollectionsResponse

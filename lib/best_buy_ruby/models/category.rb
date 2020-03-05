@@ -1,4 +1,4 @@
-require './lib/best_buy_ruby/models/base_category'
+require './lib/best_buy_ruby'
 
 module BestBuyRuby
   class Category < BaseCategory

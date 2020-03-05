@@ -1,5 +1,4 @@
-require 'active_support/core_ext/hash'
-require 'active_support/core_ext/string'
+require './lib/best_buy_ruby'
 
 module BestBuyRuby
   class APIHelper
