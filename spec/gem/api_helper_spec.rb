@@ -1,7 +1,7 @@
 require 'rspec'
-require './lib/best_buy_ruby/v1/api_helper'
+require './lib/best_buy_ruby/api_helper'
 
-RSpec.describe BestBuyRuby::V1::APIHelper do
+RSpec.describe BestBuyRuby::APIHelper do
   describe '#parse_response' do
     let(:response) do
       JSON.generate(

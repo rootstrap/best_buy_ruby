@@ -1,13 +1,13 @@
 require 'rspec'
-require './lib/best_buy_ruby/v1/categories'
-require './lib/best_buy_ruby/v1/models/category'
-require './lib/best_buy_ruby/v1/models/collections_response'
-require './lib/best_buy_ruby/v1/models/collection_header'
+require './lib/best_buy_ruby/categories'
+require './lib/best_buy_ruby/models/category'
+require './lib/best_buy_ruby/models/collections_response'
+require './lib/best_buy_ruby/models/collection_header'
 require 'active_support/core_ext/hash'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/array'
 
-RSpec.describe BestBuyRuby::V1::Categories do
+RSpec.describe BestBuyRuby::Categories do
   let(:api_key) { '11111111' }
   let(:format) { :json }
 
@@ -120,7 +120,7 @@ RSpec.describe BestBuyRuby::V1::Categories do
     before do
       allow(RestClient)
         .to receive(:get)
-        .with(BestBuyRuby::V1::Categories::API_URL, request_params)
+        .with(BestBuyRuby::Categories::API_URL, request_params)
         .and_return(api_response)
     end
 
