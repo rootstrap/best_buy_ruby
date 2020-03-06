@@ -4,12 +4,12 @@ module BestBuy
   class Categories
     API_URL = "#{BaseAPI::BASE_URL}/categories".freeze
 
+    attr_reader :api_key, :format
+
     def initialize(api_key, format)
       @api_key = api_key
       @format = format
     end
-
-    attr_reader :api_key, :format
 
     def get_all(page: nil, page_size: nil)
       request_params = {

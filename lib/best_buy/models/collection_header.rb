@@ -1,5 +1,8 @@
 module BestBuy
   class CollectionHeader
+    attr_reader :from, :to, :current_page, :total, :total_pages,
+                :query_time, :total_time, :partial, :canonical_url
+
     def initialize(from:, to:, current_page:, total:, total_pages:,
                    query_time:, total_time:, partial:, canonical_url:)
       @from = from
@@ -12,8 +15,5 @@ module BestBuy
       @partial = partial
       @canonical_url = canonical_url
     end
-
-    attr_reader :from, :to, :current_page, :total, :total_pages,
-                :query_time, :total_time, :partial, :canonical_url
   end
 end

@@ -2,6 +2,8 @@ require './lib/best_buy'
 
 module BestBuy
   class Category < BaseCategory
+    attr_reader :url, :active, :path, :sub_categories
+
     def initialize(id:, name:, url:, active:, path:, sub_categories: [])
       @url = url
       @active = active
@@ -12,7 +14,5 @@ module BestBuy
 
       super(id: id, name: name)
     end
-
-    attr_reader :url, :active, :path, :sub_categories
   end
 end
