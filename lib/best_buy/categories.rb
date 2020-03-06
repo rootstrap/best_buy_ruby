@@ -1,6 +1,6 @@
-require './lib/best_buy_ruby'
+require './lib/best_buy'
 
-module BestBuyRuby
+module BestBuy
   class Categories
     API_URL = "#{BaseAPI::BASE_URL}/categories".freeze
 

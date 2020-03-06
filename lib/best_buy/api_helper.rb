@@ -1,6 +1,6 @@
-require './lib/best_buy_ruby'
+require './lib/best_buy'
 
-module BestBuyRuby
+module BestBuy
   class APIHelper
     def parse_response(response)
       JSON.parse(response).deep_transform_keys do |key|

@@ -1,4 +1,4 @@
-module BestBuyRuby
+module BestBuy
   class BaseCategory
     def initialize(id:, name:)
       @id = id

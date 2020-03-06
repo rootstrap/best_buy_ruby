@@ -1,6 +1,6 @@
-require './lib/best_buy_ruby'
+require './lib/best_buy'
 
-module BestBuyRuby
+module BestBuy
   class Category < BaseCategory
     def initialize(id:, name:, url:, active:, path:, sub_categories: [])
       @url = url

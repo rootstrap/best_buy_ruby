@@ -1,4 +1,4 @@
-module BestBuyRuby
+module BestBuy
   class CollectionHeader
     def initialize(from:, to:, current_page:, total:, total_pages:,
                    query_time:, total_time:, partial:, canonical_url:)

@@ -1,6 +1,6 @@
-require './spec/spec_helper'
+require 'spec_helper'
 
-RSpec.describe BestBuyRuby::Categories do
+RSpec.describe BestBuy::Categories do
   include_context 'categories'
 
   let(:api_key) { '11111111' }
@@ -23,7 +23,7 @@ RSpec.describe BestBuyRuby::Categories do
     before do
       allow(RestClient)
         .to receive(:get)
-        .with(BestBuyRuby::Categories::API_URL, request_params)
+        .with(BestBuy::Categories::API_URL, request_params)
         .and_return(api_response)
     end
 

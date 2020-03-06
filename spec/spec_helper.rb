@@ -4,14 +4,14 @@ require 'rspec'
 require 'bundler/setup'
 require 'simplecov'
 
-require './lib/best_buy_ruby'
-require './spec/gem/shared_contexts/categories'
+require './lib/best_buy'
+require './spec/shared_contexts/categories'
 
 SimpleCov.start do
   add_filter '/spec/'
 end
 
-require 'best_buy_ruby/base'
+require 'best_buy/base'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

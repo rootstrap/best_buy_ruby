@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe BestBuyRuby::APIHelper do
+RSpec.describe BestBuy::APIHelper do
   describe '#parse_response' do
     include_context 'categories'
 

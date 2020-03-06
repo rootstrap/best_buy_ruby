@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/best_buy_ruby/base/version'
+require_relative 'lib/best_buy/base/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'best_buy_ruby'
-  spec.version       = BestBuyRuby::Base::VERSION
+  spec.version       = BestBuy::Base::VERSION
   spec.authors       = ['Sandro Damilano']
   spec.email         = ['sandro.damilano@rootstrap.com']
 

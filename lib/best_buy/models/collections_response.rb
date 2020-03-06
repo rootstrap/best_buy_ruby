@@ -1,6 +1,6 @@
-require './lib/best_buy_ruby'
+require './lib/best_buy'
 
-module BestBuyRuby
+module BestBuy
   class CollectionsResponse
     def initialize(header:, collection:, collection_type:)
       @header = CollectionHeader.new(header)
