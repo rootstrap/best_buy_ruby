@@ -4,7 +4,9 @@ RSpec.shared_context 'categories' do
   end
 
   let(:full_categories_response_json) do
-    JSON.generate(full_categories_response_hash.deep_transform_keys { |key| key.to_s.camelcase(:lower) })
+    JSON.generate(
+      full_categories_response_hash.deep_transform_keys { |key| key.to_s.camelcase(:lower) }
+    )
   end
 
   let(:collection_header) do

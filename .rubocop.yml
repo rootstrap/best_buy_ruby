@@ -1,3 +1,7 @@
+AllCops:
+  Exclude:
+    - 'best_buy_ruby.gemspec'
+
 Documentation:
   Enabled: false
 

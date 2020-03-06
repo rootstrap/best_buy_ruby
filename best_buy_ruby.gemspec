@@ -2,20 +2,16 @@
 
 require_relative 'lib/best_buy_ruby/base/version'
 
-# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.name          = 'best_buy_ruby'
   spec.version       = BestBuyRuby::Base::VERSION
   spec.authors       = ['Sandro Damilano']
   spec.email         = ['sandro.damilano@rootstrap.com']
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
+  spec.summary       = 'A wrapper for Best Buy APIs.'
   spec.homepage      = 'https://github.com/rootstrap/best_buy_ruby'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
-
-  spec.metadata['allowed_push_host'] = "Set to 'http://mygemserver.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/rootstrap/best_buy_ruby'
@@ -41,4 +37,3 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'simplecov'
 end
-# rubocop:enable Metrics/BlockLength
