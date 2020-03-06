@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require './lib/best_buy'
 
 module BestBuy
   class Categories
-    API_URL = "#{BaseAPI::BASE_URL}/categories".freeze
+    API_URL = "#{BaseAPI::BASE_URL}/categories"
 
     attr_reader :api_key, :format
 
