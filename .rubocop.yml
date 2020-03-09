@@ -61,6 +61,9 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 12
 
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
 Style/FrozenStringLiteralComment:
   Enabled: true
 

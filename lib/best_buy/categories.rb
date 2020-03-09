@@ -29,6 +29,7 @@ module BestBuy
         collection_type: Category
       )
     end
+    alias_method :index, :get_all
 
     private
 
