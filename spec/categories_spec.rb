@@ -25,7 +25,8 @@ RSpec.describe BestBuy::Categories do
       stub_connection_for(categories_api)
       stub_get_request(
         BestBuy::Categories::CATEGORIES_API,
-        { status_code: 200, body: full_categories_response_json }
+        200,
+        full_categories_response_json
       )
     end
 

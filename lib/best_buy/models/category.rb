@@ -6,6 +6,7 @@ module BestBuy
   class Category < BaseCategory
     attr_reader :url, :active, :path, :sub_categories
 
+    # :reek:LongParameterList
     def initialize(id:, name:, url:, active:, path:, sub_categories: [])
       @url = url
       @active = active

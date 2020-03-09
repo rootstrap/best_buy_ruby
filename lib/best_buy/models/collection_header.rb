@@ -5,6 +5,7 @@ module BestBuy
     attr_reader :canonical_url, :current_page, :from, :partial,
                 :query_time, :to, :total, :total_pages, :total_time
 
+    # :reek:LongParameterList
     def initialize(canonical_url:, current_page:, from:, partial:,
                    query_time:, to:, total:, total_pages:, total_time:)
       @canonical_url = canonical_url

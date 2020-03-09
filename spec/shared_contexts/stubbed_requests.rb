@@ -13,12 +13,12 @@ RSpec.shared_context 'stubbed_requests' do
     allow(api).to receive(:connection).and_return(stubbed_connection)
   end
 
-  def stub_get_request(url, response)
+  def stub_get_request(url, status_code, body)
     stubbed_requests.get(url) do |_env|
       [
-        response[:status_code],
+        status_code,
         { 'Content-Type': 'application/json' },
-        response[:body]
+        body
       ]
     end
   end
