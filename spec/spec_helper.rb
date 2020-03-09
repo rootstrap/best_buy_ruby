@@ -6,6 +6,7 @@ require 'simplecov'
 
 require './lib/best_buy'
 require './spec/shared_contexts/categories'
+require './spec/shared_contexts/stubbed_requests'
 
 SimpleCov.start do
   add_filter '/spec/'
