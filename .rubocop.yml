@@ -62,7 +62,7 @@ Metrics/PerceivedComplexity:
   Max: 12
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
 
 Style/ModuleFunction:
   Enabled: false

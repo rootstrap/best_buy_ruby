@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module BestBuy
   class CollectionHeader
     attr_reader :canonical_url, :current_page, :from, :partial,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'categories' do
   let(:full_categories_response_hash) do
     collection_header.merge(categories: categories)

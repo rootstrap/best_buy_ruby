@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/best_buy/api_helper'
 require './lib/best_buy/base_api'
 require './lib/best_buy/categories'

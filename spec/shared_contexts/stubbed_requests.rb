@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'stubbed_requests' do
   let(:stubbed_connection) do
     Faraday.new do |builder|
@@ -12,7 +14,7 @@ RSpec.shared_context 'stubbed_requests' do
   end
 
   def stub_get_request(url, response)
-    stubbed_requests.get(url) do |env|
+    stubbed_requests.get(url) do |_env|
       [
         response[:status_code],
         { 'Content-Type': 'application/json' },

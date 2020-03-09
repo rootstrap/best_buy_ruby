@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/best_buy'
 
 module BestBuy
