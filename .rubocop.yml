@@ -1,3 +1,7 @@
+AllCops:
+  Exclude:
+    - 'best_buy_ruby.gemspec'
+
 Documentation:
   Enabled: false
 
@@ -52,13 +56,16 @@ Metrics/LineLength:
 
 Metrics/ParameterLists:
   Max: 5
-  CountKeywordArgs: true
+  CountKeywordArgs: false
 
 Metrics/PerceivedComplexity:
   Max: 12
 
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
 
 Style/ModuleFunction:
   Enabled: false

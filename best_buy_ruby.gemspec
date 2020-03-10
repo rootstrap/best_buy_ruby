@@ -1,24 +1,21 @@
 # frozen_string_literal: true
 
-require_relative 'lib/best_buy_ruby/base/version'
+require_relative 'lib/best_buy/base/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'best_buy_ruby'
-  spec.version       = BestBuyRuby::Base::VERSION
+  spec.version       = BestBuy::Base::VERSION
   spec.authors       = ['Sandro Damilano']
   spec.email         = ['sandro.damilano@rootstrap.com']
 
-  spec.summary       = "Write a short summary, because RubyGems requires one."
-  spec.description   = "Write a longer description or delete this line."
-  spec.homepage      = "https://github.com/rootstrap/best_buy_ruby"
-  spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.summary       = 'A wrapper for Best Buy APIs.'
+  spec.homepage      = 'https://github.com/rootstrap/best_buy_ruby'
+  spec.license       = 'MIT'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
-  spec.metadata["allowed_push_host"] = "Set to 'http://mygemserver.com'"
-
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/rootstrap/best_buy_ruby"
-  spec.metadata["changelog_uri"] = "https://github.com/rootstrap/best_buy_ruby"
+  spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = 'https://github.com/rootstrap/best_buy_ruby'
+  spec.metadata['changelog_uri'] = 'https://github.com/rootstrap/best_buy_ruby'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -29,9 +26,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  # # Production dependencies
-  # spec.add_dependency 'rails', '~> 6.0'
+  # Production dependencies
+  spec.add_dependency 'activesupport', '~> 6.0.2.1'
+  spec.add_dependency 'faraday', '~> 1.0.0'
 
+  # Development dependencies
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'reek'
   spec.add_development_dependency 'rspec'

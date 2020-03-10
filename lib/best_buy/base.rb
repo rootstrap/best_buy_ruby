@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'best_buy_ruby/base/version'
+require 'best_buy/base/version'
 
-module BestBuyRuby
+module BestBuy
   # Starting point of your gem
   module Base
     # Base error class
