@@ -18,10 +18,10 @@ module BestBuy
       }.merge(pagination)
 
       response = APIHelper.new.parse_response(get_response(search_query, request_params))
-      header = response.except(collection_name)
+
       CollectionsResponse.new(
-        header: header,
-        collection: response[collection_name],
+        response: response,
+        collection_name: collection_name,
         collection_type: collection_type
       )
     end
