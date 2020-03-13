@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe BestBuy::Products do
-  describe '#get_by_category' do
+  describe '#get_by' do
     include_context 'products'
 
     let(:url) { "#{BestBuy::BaseAPI::BASE_URL}#{BestBuy::Products::PRODUCTS_API}" }
