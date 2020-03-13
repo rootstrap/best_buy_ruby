@@ -47,7 +47,9 @@ RSpec.describe BestBuy::Categories do
       let(:categories) { [gift_ideas_category] }
 
       it 'returns as much categories as that page size' do
-        expect(subject.get_all(page_size: page_size).collection.count).to eq page_size
+        categories_response = subject.get_all(pagination: { page_size: page_size })
+
+        expect(categories_response.collection.count).to eq page_size
       end
     end
 
@@ -65,7 +67,7 @@ RSpec.describe BestBuy::Categories do
       let(:categories) { [tvs_category] }
 
       it 'returns only the categories of that page' do
-        categories_response = subject.get_all(page: page, page_size: page_size)
+        categories_response = subject.get_all(pagination: { page: page, page_size: page_size })
 
         expect(categories_response.collection.first.name).to eq tvs_category_name
       end

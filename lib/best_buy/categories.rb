@@ -6,11 +6,11 @@ module BestBuy
   class Categories < BaseAPI
     CATEGORIES_API = '/v1/categories'
 
-    def get_all(pagination_params = {})
+    def get_all(pagination: {})
       request_params = {
         apiKey: api_key,
         format: format.to_s
-      }.merge(pagination_params)
+      }.merge(pagination)
 
       response = APIHelper.new.parse_response(get_categories(request_params))
       header = response.except(:categories)
