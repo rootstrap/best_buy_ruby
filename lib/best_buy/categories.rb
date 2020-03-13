@@ -3,23 +3,14 @@
 require './lib/best_buy'
 
 module BestBuy
-  class Categories
-    CATEGORIES_API = '/categories'
+  class Categories < BaseAPI
+    CATEGORIES_API = '/v1/categories'
 
-    attr_reader :api_key, :format
-
-    def initialize(api_key, format)
-      @api_key = api_key
-      @format = format
-    end
-
-    def get_all(page: nil, page_size: nil)
+    def get_all(pagination_params = {})
       request_params = {
         apiKey: api_key,
-        format: format.to_s,
-        page: page,
-        page_size: page_size
-      }.compact
+        format: format.to_s
+      }.merge(pagination_params)
 
       response = APIHelper.new.parse_response(get_categories(request_params))
       header = response.except(:categories)
@@ -35,10 +26,6 @@ module BestBuy
 
     def get_categories(params)
       connection.get(CATEGORIES_API, params).body
-    end
-
-    def connection
-      @connection ||= Faraday.new(url: BaseAPI::BASE_URL)
     end
   end
 end

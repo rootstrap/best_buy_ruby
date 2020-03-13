@@ -4,7 +4,6 @@ require 'spec_helper'
 
 RSpec.describe BestBuy::Categories do
   include_context 'categories'
-  include_context 'stubbed_requests'
 
   let(:api_key) { '11111111' }
   let(:format) { :json }
@@ -14,6 +13,7 @@ RSpec.describe BestBuy::Categories do
   end
 
   describe '#get_all' do
+    let(:url) { "#{BestBuy::BaseAPI::BASE_URL}#{BestBuy::Categories::CATEGORIES_API}" }
     let(:request_params) do
       {
         apiKey: api_key,
@@ -22,12 +22,9 @@ RSpec.describe BestBuy::Categories do
     end
 
     before do
-      stub_connection_for(categories_api)
-      stub_get_request(
-        BestBuy::Categories::CATEGORIES_API,
-        200,
-        full_categories_response_json
-      )
+      stub_request(:get, url)
+        .with(query: request_params)
+        .to_return(body: full_categories_response_json, status: 200)
     end
 
     it 'returns all the categories' do
