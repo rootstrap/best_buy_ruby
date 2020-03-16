@@ -23,7 +23,7 @@ RSpec.describe BestBuy::BaseAPI do
     attr_reader :id, :active
 
     def initialize(init_params)
-      @id     = init_params[:id]
+      @id = init_params[:id]
       @active = init_params[:active]
     end
   end

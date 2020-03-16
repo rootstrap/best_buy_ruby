@@ -5,7 +5,7 @@ module BestBuy
     attr_reader :id, :name
 
     def initialize(init_params)
-      @id   = init_params[:id]
+      @id = init_params[:id]
       @name = init_params[:name]
     end
   end

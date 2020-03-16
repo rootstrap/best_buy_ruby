@@ -7,9 +7,9 @@ module BestBuy
     attr_reader :url, :active, :path, :sub_categories
 
     def initialize(init_params)
-      @url            = init_params[:url]
-      @active         = init_params[:active]
-      @path           = init_params[:path]
+      @url = init_params[:url]
+      @active = init_params[:active]
+      @path = init_params[:path]
       @sub_categories = init_params[:sub_categories].map do |sub_category|
         BaseCategory.new(sub_category)
       end
