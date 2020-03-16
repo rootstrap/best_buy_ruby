@@ -4,17 +4,16 @@ module BestBuy
   class BaseAPI
     BASE_URL = 'https://api.bestbuy.com'
 
-    attr_reader :api_key, :format
+    attr_reader :api_key
 
-    def initialize(api_key, format)
+    def initialize(api_key)
       @api_key = api_key
-      @format = format
     end
 
     def get_all(search_query: '', pagination: {})
       request_params = {
         apiKey: api_key,
-        format: format.to_s
+        format: 'json'
       }.merge(pagination)
 
       response = APIHelper.new.parse_response(get_response(search_query, request_params))

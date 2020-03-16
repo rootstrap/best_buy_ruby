@@ -6,10 +6,9 @@ RSpec.describe BestBuy::Categories do
   include_context 'categories'
 
   let(:api_key) { '11111111' }
-  let(:format) { :json }
 
   subject(:categories_api) do
-    described_class.new(api_key, format)
+    described_class.new(api_key)
   end
 
   describe '#get_all' do
@@ -17,7 +16,7 @@ RSpec.describe BestBuy::Categories do
     let(:request_params) do
       {
         apiKey: api_key,
-        format: format.to_s
+        format: 'json'
       }
     end
 
@@ -40,7 +39,7 @@ RSpec.describe BestBuy::Categories do
       let(:request_params) do
         {
           apiKey: api_key,
-          format: format.to_s,
+          format: 'json',
           page_size: page_size
         }
       end
@@ -59,7 +58,7 @@ RSpec.describe BestBuy::Categories do
       let(:request_params) do
         {
           apiKey: api_key,
-          format: format.to_s,
+          format: 'json',
           page_size: page_size,
           page: page
         }

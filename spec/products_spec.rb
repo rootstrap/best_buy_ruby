@@ -10,17 +10,16 @@ RSpec.describe BestBuy::Products do
     let(:requested_category_id) { movies_tv_category_id }
     let(:search_query) { "(categoryPath.id=#{requested_category_id})" }
     let(:api_key) { '11111111' }
-    let(:format) { :json }
     let(:request_params) do
       {
         apiKey: api_key,
-        format: format.to_s
+        format: 'json'
       }
     end
 
     let(:products) { [movie] }
 
-    subject(:products_api) { described_class.new(api_key, format) }
+    subject(:products_api) { described_class.new(api_key) }
 
     before do
       stub_request(:get, url + search_query)
@@ -41,7 +40,7 @@ RSpec.describe BestBuy::Products do
       let(:request_params) do
         {
           apiKey: api_key,
-          format: format.to_s,
+          format: 'json',
           page_size: page_size,
           page: page
         }
