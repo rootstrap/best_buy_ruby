@@ -20,10 +20,14 @@ RSpec.describe BestBuy::Products do
 
     subject(:products_api) { described_class.new(api_key) }
 
-    before do
+    let(:stubbed_request) do
       stub_request(:get, url + search_query)
         .with(query: request_params)
         .to_return(body: full_products_response_json, status: 200)
+    end
+
+    before do
+      stubbed_request
     end
 
     context 'when specifying a category' do
@@ -34,6 +38,50 @@ RSpec.describe BestBuy::Products do
         products_response = products_api.get_by(category_id: movies_tv_category_id)
 
         expect(products_response.collection.map(&:sku)).to contain_exactly(movie_sku)
+      end
+    end
+
+    context 'when specifying a minimum price for the item' do
+      let(:min_price) { 10 }
+
+      let(:products) { [movie] }
+
+      let(:regular_price_condition) { "(regularPrice>=#{min_price}&onSale=false)" }
+      let(:sale_price_condition) { "(salePrice>=#{min_price}&onSale=true)" }
+      let(:search_query) { "((#{regular_price_condition}|#{sale_price_condition}))" }
+
+      it 'hits the Best Buy API with the correct search query' do
+        products_api.get_by(min_price: min_price)
+
+        expect(stubbed_request).to have_been_requested
+      end
+
+      it 'returns the products that have a higher price' do
+        products_response = products_api.get_by(min_price: min_price)
+
+        expect(products_response.collection.map(&:sku)).to contain_exactly(movie_sku)
+      end
+    end
+
+    context 'when specifying a maximum price for the item' do
+      let(:max_price) { 10 }
+
+      let(:products) { [music_cd] }
+
+      let(:regular_price_condition) { "(regularPrice<=#{max_price}&onSale=false)" }
+      let(:sale_price_condition) { "(salePrice<=#{max_price}&onSale=true)" }
+      let(:search_query) { "((#{regular_price_condition}|#{sale_price_condition}))" }
+
+      it 'hits the Best Buy API with the correct search query' do
+        products_api.get_by(max_price: max_price)
+
+        expect(stubbed_request).to have_been_requested
+      end
+
+      it 'returns the products that have a higher price' do
+        products_response = products_api.get_by(max_price: max_price)
+
+        expect(products_response.collection.map(&:sku)).to contain_exactly(music_cd_sku)
       end
     end
 

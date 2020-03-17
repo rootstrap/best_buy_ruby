@@ -42,7 +42,8 @@ RSpec.shared_context 'products' do
       sku: movie_sku,
       upc: '013132620237',
       regular_price: 12.99,
-      sale_price: 12.99,
+      sale_price: 10.99,
+      on_sale: true,
       shipping_cost: 3.99,
       shipping_levels_of_service: [
         {
@@ -120,50 +121,51 @@ RSpec.shared_context 'products' do
   let(:music_cd_sku) { 10_385_941 }
   let(:music_cd) do
     {
-      "sku": music_cd_sku,
-      "name": 'Not Me',
-      "type": 'Music',
-      "active": true,
-      "regular_price": 9.99,
-      "sale_price": 9.99,
-      "url": 'https://api.bestbuy.com/click/-/10385941/pdp',
-      "upc": '051617440048',
-      "category_path": [
+      sku: music_cd_sku,
+      name: 'Not Me',
+      type: 'Music',
+      active: true,
+      regular_price: 9.99,
+      sale_price: 6.99,
+      on_sale: false,
+      url: 'https://api.bestbuy.com/click/-/10385941/pdp',
+      upc: '051617440048',
+      category_path: [
         {
-          "id": 'cat00000',
-          "name": 'Best Buy'
+          id: 'cat00000',
+          name: 'Best Buy'
         },
         {
-          "id": movies_music_category_id,
-          "name": 'Movies & Music'
+          id: movies_music_category_id,
+          name: 'Movies & Music'
         },
         {
-          "id": 'cat02001',
-          "name": 'Music'
+          id: 'cat02001',
+          name: 'Music'
         }
       ],
-      "alternate_categories": [],
-      "shipping_cost": 3.99,
-      "shipping_levels_of_service": [],
-      "images": [
+      alternate_categories: [],
+      shipping_cost: 3.99,
+      shipping_levels_of_service: [],
+      images: [
         {
-          "rel": 'Front_Detail',
-          "unit_of_measure": 'pixels',
+          rel: 'Front_Detail',
+          unit_of_measure: 'pixels',
           width: '54',
           height: '69',
-          "href": 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/1038/10385941.jpg',
-          "primary": true
+          href: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/1038/10385941.jpg',
+          primary: true
         },
         {
-          "rel": 'Front_Thumbnail',
-          "unit_of_measure": 'pixels',
+          rel: 'Front_Thumbnail',
+          unit_of_measure: 'pixels',
           width: '54',
           height: '69',
-          "href": 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/1038/10385941s.jpg',
-          "primary": false
+          href: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/1038/10385941s.jpg',
+          primary: false
         }
       ],
-      "offers": []
+      offers: []
     }
   end
 end
