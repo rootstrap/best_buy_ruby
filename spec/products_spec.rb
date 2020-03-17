@@ -7,8 +7,7 @@ RSpec.describe BestBuy::Products do
     include_context 'products'
 
     let(:url) { "#{BestBuy::BaseAPI::BASE_URL}#{BestBuy::Products::PRODUCTS_API}" }
-    let(:requested_category_id) { movies_tv_category_id }
-    let(:search_query) { "(categoryPath.id=#{requested_category_id})" }
+    let(:search_query) { '' }
     let(:api_key) { '11111111' }
     let(:request_params) do
       {
@@ -27,16 +26,20 @@ RSpec.describe BestBuy::Products do
         .to_return(body: full_products_response_json, status: 200)
     end
 
-    it 'returns only the products of that category' do
-      products_response = products_api.get_by(category_id: movies_tv_category_id)
+    context 'when specifying a category' do
+      let(:requested_category_id) { movies_tv_category_id }
+      let(:search_query) { "(categoryPath.id=#{requested_category_id})" }
 
-      expect(products_response.collection.map(&:sku)).to contain_exactly(movie_sku)
+      it 'returns only the products of that category' do
+        products_response = products_api.get_by(category_id: movies_tv_category_id)
+
+        expect(products_response.collection.map(&:sku)).to contain_exactly(movie_sku)
+      end
     end
 
     context 'when specifying page number and page size' do
       let(:page_size) { 1 }
       let(:page) { 2 }
-      let(:requested_category_id) { movies_music_category_id }
       let(:request_params) do
         {
           apiKey: api_key,
@@ -50,7 +53,6 @@ RSpec.describe BestBuy::Products do
       it 'returns only the products of that customized page' do
         pagination = { page: page, page_size: page_size }
         products_response = subject.get_by(
-          category_id: movies_music_category_id,
           pagination: pagination
         )
 

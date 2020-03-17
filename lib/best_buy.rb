@@ -4,6 +4,7 @@ require './lib/best_buy/api_helper'
 require './lib/best_buy/base_api'
 require './lib/best_buy/categories'
 require './lib/best_buy/products'
+require './lib/best_buy/search_query_builder'
 
 require './lib/best_buy/models/base_category'
 require './lib/best_buy/models/category'
