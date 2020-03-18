@@ -44,6 +44,7 @@ RSpec.shared_context 'products' do
       regular_price: 12.99,
       sale_price: 10.99,
       on_sale: true,
+      condition: 'new',
       shipping_cost: 3.99,
       shipping_levels_of_service: [
         {
@@ -128,6 +129,7 @@ RSpec.shared_context 'products' do
       regular_price: 9.99,
       sale_price: 6.99,
       on_sale: false,
+      condition: 'preowned',
       url: 'https://api.bestbuy.com/click/-/10385941/pdp',
       upc: '051617440048',
       category_path: [

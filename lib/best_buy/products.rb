@@ -4,7 +4,7 @@ module BestBuy
   class Products < BaseAPI
     PRODUCTS_API = '/v1/products'
 
-    def get_by(category_id: nil, min_price: nil, max_price: nil, pagination: {})
+    def get_by(category_id: nil, min_price: nil, max_price: nil, item_condition: nil, pagination: {})
       search_query_builder.add("categoryPath.id=#{category_id}") if category_id.present?
 
       if min_price.present?
@@ -17,6 +17,22 @@ module BestBuy
         search_query_builder.add(
           "((regularPrice<=#{max_price}&onSale=false)|(salePrice<=#{max_price}&onSale=true))"
         )
+      end
+
+      if item_condition.present?
+        if item_condition.downcase == 'new'
+          search_query_builder.add(
+            '(condition=new|new=true)'
+          )
+        elsif item_condition.downcase == 'pre-owned'
+          search_query_builder.add(
+            '(condition=pre-owned|preowned=true)'
+          )
+        else
+          search_query_builder.add(
+            "condition=#{item_condition}"
+          )
+        end
       end
 
       get_all(search_query: search_query_builder.build, pagination: pagination)

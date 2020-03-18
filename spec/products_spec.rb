@@ -85,6 +85,50 @@ RSpec.describe BestBuy::Products do
       end
     end
 
+    context 'when specifying the condition of the item' do
+      context 'when the condition is new' do
+        let(:item_condition) { 'new' }
+
+        let(:products) { [movie] }
+
+        let(:search_query) { "((condition=#{item_condition}|new=true))" }
+
+        it 'hits the Best Buy API with the correct search query' do
+          products_api.get_by(item_condition: item_condition)
+
+          expect(stubbed_request).to have_been_requested
+        end
+      end
+
+      context 'when the condition is pre-owned' do
+        let(:item_condition) { 'pre-owned' }
+
+        let(:products) { [music_cd] }
+
+        let(:search_query) { "((condition=#{item_condition}|preowned=true))" }
+
+        it 'hits the Best Buy API with the correct search query' do
+          products_api.get_by(item_condition: item_condition)
+
+          expect(stubbed_request).to have_been_requested
+        end
+      end
+
+      context 'when the condition is refurbished' do
+        let(:item_condition) { 'refurbished' }
+
+        let(:products) { [] }
+
+        let(:search_query) { "(condition=#{item_condition})" }
+
+        it 'hits the Best Buy API with the correct search query' do
+          products_api.get_by(item_condition: item_condition)
+
+          expect(stubbed_request).to have_been_requested
+        end
+      end
+    end
+
     context 'when specifying page number and page size' do
       let(:page_size) { 1 }
       let(:page) { 2 }
