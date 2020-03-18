@@ -2,38 +2,20 @@
 
 module BestBuy
   class Products < BaseAPI
+    include Conditions
+
     PRODUCTS_API = '/v1/products'
+    CONDITIONS = [
+      CategoryCondition,
+      ItemConditionCondition,
+      MinPriceCondition,
+      MaxPriceCondition
+    ].freeze
 
-    def get_by(category_id: nil, min_price: nil, max_price: nil, item_condition: nil, pagination: {})
-      search_query_builder.add("categoryPath.id=#{category_id}") if category_id.present?
+    def get_by(conditions)
+      add_search_conditions_to_query(conditions.except(:pagination))
 
-      if min_price.present?
-        search_query_builder.add(
-          "((regularPrice>=#{min_price}&onSale=false)|(salePrice>=#{min_price}&onSale=true))"
-        )
-      end
-
-      if max_price.present?
-        search_query_builder.add(
-          "((regularPrice<=#{max_price}&onSale=false)|(salePrice<=#{max_price}&onSale=true))"
-        )
-      end
-
-      if item_condition.present?
-        if item_condition.downcase == 'new'
-          search_query_builder.add(
-            '(condition=new|new=true)'
-          )
-        elsif item_condition.downcase == 'pre-owned'
-          search_query_builder.add(
-            '(condition=pre-owned|preowned=true)'
-          )
-        else
-          search_query_builder.add(
-            "condition=#{item_condition}"
-          )
-        end
-      end
+      pagination = conditions[:pagination] || {}
 
       get_all(search_query: search_query_builder.build, pagination: pagination)
     end
@@ -54,6 +36,16 @@ module BestBuy
 
     def search_query_builder
       @search_query_builder ||= SearchQueryBuilder.new
+    end
+
+    def add_search_conditions_to_query(conditions)
+      applying_conditions = CONDITIONS.map do |condition|
+        condition.new(conditions)
+      end.select(&:valid?)
+
+      applying_conditions.each do |applying_condition|
+        search_query_builder.add(applying_condition.search_query)
+      end
     end
   end
 end
