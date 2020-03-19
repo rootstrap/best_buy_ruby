@@ -38,7 +38,7 @@ module BestBuy
     end
 
     def get_response(search_query, params)
-      url = URI.escape(api_url + search_query)
+      url = URI.escape(api_url + search_query) # rubocop:disable Lint/UriEscapeUnescape
       connection.get(url, params).body
     end
   end

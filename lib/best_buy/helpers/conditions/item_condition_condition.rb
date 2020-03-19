@@ -11,6 +11,7 @@ module BestBuy
         @item_condition.present?
       end
 
+      # :reek:DuplicateMethodCall
       def search_query
         if @item_condition.downcase == 'new'
           '(condition=new|new=true)'
