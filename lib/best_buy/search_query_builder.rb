@@ -13,7 +13,7 @@ module BestBuy
 
       return '' unless full_condition_string.present?
 
-      '(' + full_condition_string + ')'
+      "(#{full_condition_string})"
     end
 
     private
