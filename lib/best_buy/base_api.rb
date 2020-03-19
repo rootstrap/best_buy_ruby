@@ -2,6 +2,11 @@
 
 module BestBuy
   class BaseAPI
+    # All subclasses must implement:
+    # :collection_type
+    # :collection_name
+    # :api_url
+
     BASE_URL = 'https://api.bestbuy.com'
 
     attr_reader :api_key
@@ -34,18 +39,6 @@ module BestBuy
 
     def get_response(search_query, params)
       connection.get(api_url + search_query, params).body
-    end
-
-    def collection_type
-      raise 'subclass responsibility'
-    end
-
-    def collection_name
-      raise 'subclass responsibility'
-    end
-
-    def api_url
-      raise 'subclass responsibility'
     end
   end
 end
