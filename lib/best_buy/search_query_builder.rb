@@ -7,9 +7,7 @@ module BestBuy
     end
 
     def build
-      full_condition_string = conditions.inject do |condition_string, condition|
-        condition_string + '&' + condition
-      end
+      full_condition_string = conditions.join('&')
 
       return '' unless full_condition_string.present?
 
