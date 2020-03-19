@@ -7,11 +7,9 @@ module BestBuy
     end
 
     def build
-      full_condition_string = conditions.join('&')
+      return '' unless conditions.any?
 
-      return '' unless full_condition_string.present?
-
-      "(#{full_condition_string})"
+      "(#{conditions.join('&')})"
     end
 
     private
