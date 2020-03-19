@@ -7,9 +7,11 @@ module BestBuy
     PRODUCTS_API = '/v1/products'
     CONDITIONS = [
       CategoryCondition,
-      ItemConditionCondition,
       MinPriceCondition,
-      MaxPriceCondition
+      MaxPriceCondition,
+      NewCondition,
+      PreOwnedCondition,
+      RefurbishedCondition
     ].freeze
 
     def get_by(conditions)

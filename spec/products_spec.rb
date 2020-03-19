@@ -43,9 +43,7 @@ RSpec.describe BestBuy::Products do
 
     context 'when specifying a minimum price for the item' do
       let(:min_price) { 10 }
-
       let(:products) { [movie] }
-
       let(:regular_price_condition) { "(regularPrice>=#{min_price}&onSale=false)" }
       let(:sale_price_condition) { "(salePrice>=#{min_price}&onSale=true)" }
       let(:search_query) { "((#{regular_price_condition}|#{sale_price_condition}))" }
@@ -65,9 +63,7 @@ RSpec.describe BestBuy::Products do
 
     context 'when specifying a maximum price for the item' do
       let(:max_price) { 10 }
-
       let(:products) { [music_cd] }
-
       let(:regular_price_condition) { "(regularPrice<=#{max_price}&onSale=false)" }
       let(:sale_price_condition) { "(salePrice<=#{max_price}&onSale=true)" }
       let(:search_query) { "((#{regular_price_condition}|#{sale_price_condition}))" }
@@ -88,9 +84,7 @@ RSpec.describe BestBuy::Products do
     context 'when specifying the condition of the item' do
       context 'when the condition is new' do
         let(:item_condition) { 'new' }
-
         let(:products) { [movie] }
-
         let(:search_query) { "((condition=#{item_condition}|new=true))" }
 
         it 'hits the Best Buy API with the correct search query' do
@@ -102,9 +96,7 @@ RSpec.describe BestBuy::Products do
 
       context 'when the condition is pre-owned' do
         let(:item_condition) { 'pre-owned' }
-
         let(:products) { [music_cd] }
-
         let(:search_query) { "((condition=#{item_condition}|preowned=true))" }
 
         it 'hits the Best Buy API with the correct search query' do
@@ -116,9 +108,7 @@ RSpec.describe BestBuy::Products do
 
       context 'when the condition is refurbished' do
         let(:item_condition) { 'refurbished' }
-
         let(:products) { [] }
-
         let(:search_query) { "(condition=#{item_condition})" }
 
         it 'hits the Best Buy API with the correct search query' do

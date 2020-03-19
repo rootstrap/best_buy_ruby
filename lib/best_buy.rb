@@ -2,9 +2,11 @@
 
 require './lib/best_buy/helpers/api_helper'
 require './lib/best_buy/helpers/conditions/category_condition'
-require './lib/best_buy/helpers/conditions/item_condition_condition'
 require './lib/best_buy/helpers/conditions/max_price_condition'
 require './lib/best_buy/helpers/conditions/min_price_condition'
+require './lib/best_buy/helpers/conditions/new_condition'
+require './lib/best_buy/helpers/conditions/pre_owned_condition'
+require './lib/best_buy/helpers/conditions/refurbished_condition'
 
 require './lib/best_buy/base_api'
 require './lib/best_buy/categories'
