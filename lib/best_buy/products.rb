@@ -24,7 +24,7 @@ module BestBuy
 
     protected
 
-    def collection_type
+    def model
       Product
     end
 

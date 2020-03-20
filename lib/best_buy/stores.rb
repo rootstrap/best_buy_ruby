@@ -6,9 +6,16 @@ module BestBuy
   class Stores < BaseAPI
     STORES_API = '/v1/stores'
 
+    def find(store_id)
+      response = get_response("/#{store_id}.json", { apiKey: api_key })
+      parsed_response = APIHelper.new.parse_response(response)
+
+      model.new(parsed_response)
+    end
+
     protected
 
-    def collection_type
+    def model
       Store
     end
 
