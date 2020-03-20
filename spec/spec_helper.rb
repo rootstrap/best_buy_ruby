@@ -3,10 +3,11 @@
 require 'rspec'
 require 'bundler/setup'
 require 'simplecov'
+require 'webmock/rspec'
 
 require './lib/best_buy'
 require './spec/shared_contexts/categories'
-require './spec/shared_contexts/stubbed_requests'
+require './spec/shared_contexts/products'
 
 SimpleCov.start do
   add_filter '/spec/'
