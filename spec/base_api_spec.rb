@@ -36,7 +36,8 @@ RSpec.describe BestBuy::BaseAPI do
     let(:request_params) do
       {
         apiKey: api_key,
-        format: 'json'
+        format: 'json',
+        show: 'all'
       }
     end
     let(:test_collection_id) { '222222' }
@@ -103,6 +104,7 @@ RSpec.describe BestBuy::BaseAPI do
           {
             apiKey: api_key,
             format: 'json',
+            show: 'all',
             page: page
           }
         end
@@ -120,6 +122,7 @@ RSpec.describe BestBuy::BaseAPI do
           {
             apiKey: api_key,
             format: 'json',
+            show: 'all',
             page_size: page_size
           }
         end
@@ -138,6 +141,7 @@ RSpec.describe BestBuy::BaseAPI do
           {
             apiKey: api_key,
             format: 'json',
+            show: 'all',
             page_size: page_size,
             page: page
           }

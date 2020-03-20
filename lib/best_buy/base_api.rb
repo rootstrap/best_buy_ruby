@@ -18,7 +18,8 @@ module BestBuy
     def get_all(search_query: '', pagination: {})
       request_params = {
         apiKey: api_key,
-        format: 'json'
+        format: 'json',
+        show: 'all'
       }.merge(pagination)
 
       response = APIHelper.new.parse_response(get_response(search_query, request_params))

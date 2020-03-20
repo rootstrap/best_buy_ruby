@@ -16,7 +16,8 @@ RSpec.describe BestBuy::Categories do
     let(:request_params) do
       {
         apiKey: api_key,
-        format: 'json'
+        format: 'json',
+        show: 'all'
       }
     end
 
@@ -40,6 +41,7 @@ RSpec.describe BestBuy::Categories do
         {
           apiKey: api_key,
           format: 'json',
+          show: 'all',
           page_size: page_size
         }
       end
@@ -59,6 +61,7 @@ RSpec.describe BestBuy::Categories do
         {
           apiKey: api_key,
           format: 'json',
+          show: 'all',
           page_size: page_size,
           page: page
         }
