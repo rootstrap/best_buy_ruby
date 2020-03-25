@@ -6,7 +6,7 @@ RSpec.describe BestBuy::BaseAPI do
   class TestCollections < BestBuy::BaseAPI
     TEST_COLLECTIONS_API = '/v1/testCollections'
 
-    def model
+    def model_class
       TestCollection
     end
 

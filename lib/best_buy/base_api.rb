@@ -3,7 +3,7 @@
 module BestBuy
   class BaseAPI
     # All subclasses must implement:
-    # :model
+    # :model_class
     # :collection_name
     # :api_url
 
@@ -27,7 +27,7 @@ module BestBuy
       CollectionsResponse.new(
         response: response,
         collection_name: collection_name,
-        collection_type: model
+        collection_type: model_class
       )
     end
     alias_method :index, :get_all

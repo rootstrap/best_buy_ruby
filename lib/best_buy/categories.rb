@@ -8,7 +8,7 @@ module BestBuy
 
     protected
 
-    def model
+    def model_class
       Category
     end
 

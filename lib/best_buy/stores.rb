@@ -10,12 +10,12 @@ module BestBuy
       response = get_response("/#{store_id}.json", { apiKey: api_key })
       parsed_response = APIHelper.new.parse_response(response)
 
-      model.new(parsed_response)
+      model_class.new(parsed_response)
     end
 
     protected
 
-    def model
+    def model_class
       Store
     end
 
