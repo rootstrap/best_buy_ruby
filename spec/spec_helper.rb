@@ -8,6 +8,7 @@ require 'webmock/rspec'
 require './lib/best_buy'
 require './spec/shared_contexts/categories'
 require './spec/shared_contexts/products'
+require './spec/shared_contexts/stores'
 
 SimpleCov.start do
   add_filter '/spec/'
