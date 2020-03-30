@@ -94,9 +94,10 @@ RSpec.shared_context 'stores' do
   end
 
   let(:holyoke_mall_store_name) { 'HOLYOKE MALL MA' }
+  let(:holyoke_mall_store_id) { 418 }
   let(:holyoke_mall_store) do
     {
-      store_id: 418,
+      store_id: holyoke_mall_store_id,
       store_type: 'Big Box',
       location_type: 'Store',
       name: holyoke_mall_store_name,
