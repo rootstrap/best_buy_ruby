@@ -12,6 +12,6 @@ RSpec.describe BestBuy::Generators::ConfigGenerator, type: :generator do
   it 'creates the config file' do
     run_generator
 
-    expect(file('config/best_buy/config.rb')).to exist
+    expect(file('config/initializers/best_buy.rb')).to exist
   end
 end
