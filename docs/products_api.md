@@ -5,7 +5,7 @@
 Attributes:
 
 - `active`: Identifies if product is currently supported in the BESTBUY.COM catalog
-- `category_path`: A hierarchal view of a product returned as a collection
+- `category_path`: A hierarchical view of a product returned as a collection
 - `alternate_categories`: Alternative categories of the product
 - `images`: An array of [Images](products_api.md#the-image-object)
 - `name`: Product name
