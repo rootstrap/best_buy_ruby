@@ -1,8 +1,8 @@
 # Best Buy Ruby
 
-[![Build Status](https://travis-ci.com/rootstrap/best_buy_ruby.svg?branch=master)](https://travis-ci.com/rootstrap/best_buy_ruby)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e550defc9063dc6a29d7/maintainability)](https://codeclimate.com/github/rootstrap/best_buy_ruby/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/e550defc9063dc6a29d7/test_coverage)](https://codeclimate.com/github/rootstrap/best_buy_ruby/test_coverage)
+[![Build Status](https://travis-ci.com/rootstrap/best_buy_ruby.svg?token=7i1Qbv4PM7uB4Ljqux8D&branch=master)](https://travis-ci.com/rootstrap/best_buy_ruby)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d8dacb0f44a9379fee2d/maintainability)](https://codeclimate.com/github/rootstrap/best_buy_ruby/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d8dacb0f44a9379fee2d/test_coverage)](https://codeclimate.com/github/rootstrap/best_buy_ruby/test_coverage)
 
 This is a Ruby gem for accessing all the different [Best Buy APIs](https://bestbuyapis.github.io/api-documentation).
 
@@ -44,6 +44,19 @@ products_api = BestBuy::Products.new(your_api_key)
 products_api.get_by(min_price: 6.5, max_price: 11, item_condition: "New")
 ```
 
+## Future Features
+
+- [Commerce API](https://bestbuyapis.github.io/api-documentation/#commerce-api)
+- [Buying Options API](https://bestbuyapis.github.io/api-documentation/#buying-options-open-box-api)
+- [Recommendations API](https://bestbuyapis.github.io/api-documentation/#recommendations-api)
+- [Sorting options](https://bestbuyapis.github.io/api-documentation/#sort)
+- [Facets](https://bestbuyapis.github.io/api-documentation/#facets)
+- Stores API
+
+    - [Area function](https://bestbuyapis.github.io/api-documentation/#area-function)
+
+(A detailed backlog can be found in our Github Projects [board](https://github.com/rootstrap/best_buy_ruby/projects/1))
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -53,7 +66,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/rootstrap/best_buy_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/rootstrap/best_buy_ruby/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
