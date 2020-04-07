@@ -8,14 +8,14 @@ The different APIs accessible by this gem are:
 
 In spite of having each their own specification, they all share some basics listed here.
 
-## Common methods
+## Common interface
 
-These methods can be used with any of the APIs:
+This method can be used with any of the APIs:
 
 #### `get_all(search_query:, pagination:)`
 _alias: `index`_
 
-Retrieves a collection of items (which ones depends on the API). These items will be filtered by `search_query` and limited by `pagination`.
+Retrieves a collection of items (these depend on the API). These items will be filtered by `search_query` and limited by `pagination`.
 
 Params:
 
@@ -65,4 +65,3 @@ pagination_params = { page: 3, page_size: 50 }
 
 BestBuy::Stores.new(your_api_key).get_all(pagination: pagination_params)
 ```
-

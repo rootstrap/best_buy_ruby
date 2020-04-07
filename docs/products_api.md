@@ -54,9 +54,9 @@ Attributes:
 - `service_level_name`: Name of the shipping level of service
 - `unit_shipping_price`: Price of the shipping level of service
 
-## Methods
+## Interface
 
-(For more methods, check the [common API methods](general_overview.md#common-methods))
+(For more methods, check the [common API interface](general_overview.md#common-methods))
 
 #### `get_by(conditions)`
 

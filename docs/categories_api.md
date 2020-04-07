@@ -20,6 +20,6 @@ Attributes:
 - `id`: Used to find all results within a specific category (e.g., abcat0100000)
 - `name`: Used to find all subcategories (e.g., parents, siblings, children) within a specific category
 
-## Methods
+## Interface
 
-(For more methods, check the [common API methods](general_overview.md#common-methods))
+(For more methods, check the [common API interface](general_overview.md#common-methods))

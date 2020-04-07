@@ -30,7 +30,7 @@ This will create this file: `config/initializers/best_buy.rb`
 
 ## Usage
 
-The gem can be used to access the [APIs](general-overview.md):
+The gem can be used to access Best Buy [APIs](general-overview.md):
 
 - [Products](products-api.md)
 - [Stores](stores-api.md)
@@ -62,3 +62,10 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the RubyGemTemplate project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/gem-base/blob/master/CODE_OF_CONDUCT.md).
+
+## Credits
+
+Rails Api Base is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our
+[contributors](https://github.com/rootstrap/best_buy_ruby/contributors).
+
+[<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)

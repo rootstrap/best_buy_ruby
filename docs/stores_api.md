@@ -19,9 +19,9 @@ Attributes:
 Array of hashes containing info about the opening hours for each day for the next two weeks. It has the following keys:
 
 - `:day`: Name of the day of the week (e.g.: 'Sunday')
-- `:date`: Date of the day (YYYY-MM-DD)
-- `:open`: Opening time (24-hour clock) (`'Close'` if the store is closed)
-- `:close`: Closing time (24-hour clock) (`'Close'` if the store is closed)
+- `:date`: Date of the day (string formatted as: YYYY-MM-DD)
+- `:open`: Opening time (24-hour clock. E.g.: `'10:00'`. `'Close'` if the store is closed)
+- `:close`: Closing time (24-hour clock. E.g.: `'21:00'`. `'Close'` if the store is closed)
 
 #### The Address object
 
@@ -47,9 +47,9 @@ store = Store.new({ address: '50 Holyoke St' })
 store.address # returns '50 Holyoke St'
 ```
 
-## Methods
+## Interface
 
-(For more methods, check the [common API methods](general_overview.md#common-methods))
+(For more methods, check the [common API interface](general_overview.md#common-methods))
 
 #### `find(store_id)`
 
