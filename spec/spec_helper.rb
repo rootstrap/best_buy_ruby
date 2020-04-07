@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require 'uri' unless defined? URI::Generic
+
 require 'rspec'
+require 'action_controller/railtie'
+require 'ammeter/init'
 require 'bundler/setup'
 require 'simplecov'
 require 'webmock/rspec'

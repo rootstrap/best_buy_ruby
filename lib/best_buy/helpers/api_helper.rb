@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/best_buy'
+require 'best_buy'
 
 module BestBuy
   class APIHelper
