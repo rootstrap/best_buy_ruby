@@ -27,16 +27,16 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Production dependencies
-  spec.add_dependency 'activesupport', '~> 6.0.2.1'
-  spec.add_dependency 'faraday', '~> 1.0.0'
+  spec.add_dependency 'activesupport', ['>= 4', '< 7']
+  spec.add_dependency 'faraday', '~> 1.0'
 
   # Development dependencies
-  spec.add_development_dependency 'ammeter'
-  spec.add_development_dependency 'railties'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'reek'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'ammeter', '~> 1.1'
+  spec.add_development_dependency 'railties', '~> 6.0'
+  spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'reek', '~> 5.6'
+  spec.add_development_dependency 'rspec', '~> 3.9'
+  spec.add_development_dependency 'rubocop', '~> 0.80'
+  spec.add_development_dependency 'simplecov', '~> 0.17.1'
+  spec.add_development_dependency 'webmock', '~> 3.8'
 end
