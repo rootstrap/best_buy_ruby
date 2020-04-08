@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Production dependencies
-  spec.add_dependency 'activesupport', '~> 6.0'
+  spec.add_dependency 'activesupport', ['>= 4', '< 7']
   spec.add_dependency 'faraday', '~> 1.0'
 
   # Development dependencies
