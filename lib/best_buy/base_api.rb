@@ -11,7 +11,9 @@ module BestBuy
 
     attr_reader :api_key
 
-    def initialize(api_key)
+    def initialize(api_key = BestBuy.config.api_key)
+      raise Exceptions::ApiKeyNotFound unless api_key
+
       @api_key = api_key
     end
 
