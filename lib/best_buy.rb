@@ -34,4 +34,4 @@ require 'best_buy/models/product'
 require 'best_buy/models/shipping_level_of_service'
 require 'best_buy/models/store'
 
-require 'generators/best_buy/config/config_generator'
+require 'generators/best_buy/config/config_generator' if defined? Rails::Generators
