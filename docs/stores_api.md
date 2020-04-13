@@ -49,7 +49,7 @@ store.address # returns '50 Holyoke St'
 
 ## Interface
 
-(For more methods, check the [common API interface](general_overview.md#common-methods))
+(For more methods, check the [common API interface](general_overview.md#common-interface))
 
 #### `find(store_id)`
 
