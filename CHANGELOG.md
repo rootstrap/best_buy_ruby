@@ -1,3 +1,7 @@
+# 0.1.1
+- Added support for non Rails projects
+- Allowed APIs to use configured API key
+
 # 0.1.0
 - Added Products API
     - `get_all` method
