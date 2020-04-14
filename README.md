@@ -30,11 +30,11 @@ This will create this file: `config/initializers/best_buy.rb`
 
 ## Usage
 
-The gem can be used to access Best Buy [APIs](general_overview.md):
+The gem can be used to access Best Buy [APIs](docs/general_overview.md):
 
-- [Products](products_api.md)
-- [Stores](stores_api.md)
-- [Categories](categories_api.md)
+- [Products](docs/products_api.md)
+- [Stores](docs/stores_api.md)
+- [Categories](docs/categories_api.md)
 
 Example:
 
