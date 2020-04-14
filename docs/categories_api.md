@@ -22,4 +22,4 @@ Attributes:
 
 ## Interface
 
-(For more methods, check the [common API interface](general_overview.md#common-methods))
+(For more methods, check the [common API interface](general_overview.md#common-interface))

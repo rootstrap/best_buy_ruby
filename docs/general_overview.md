@@ -8,6 +8,31 @@ The different APIs accessible by this gem are:
 
 In spite of having each their own specification, they all share some basics listed here.
 
+## API key usage
+
+All APIs can be initialized by passing the API key in the `new` method
+
+```ruby
+BestBuy::Products.new(your_api_key)
+```
+But the key can also be set up in a `configure` method available for the `BestBuy` module:
+```ruby
+BestBuy.configure do |config|
+  config.api_key = 'your_api_key'
+end
+```
+Then, the next time you instantiate any API you can omit the key:
+
+```ruby
+BestBuy::Products.new
+```
+For Ruby on Rails projects you can run:
+
+    $ rails generate best_buy:config
+    
+To generate this file: `config/initializers/best_buy.rb`, where you can write the configuration code.
+
+For non Ruby on Rails projects, you can still write the configuration code wherever you like, as long as you make sure it runs before trying to access the APIs.
 ## Common interface
 
 This method can be used with any of the APIs:

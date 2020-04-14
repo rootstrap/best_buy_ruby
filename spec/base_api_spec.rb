@@ -28,9 +28,9 @@ RSpec.describe BestBuy::BaseAPI do
     end
   end
 
-  describe '#get_all' do
-    let(:api_key) { '111111' }
+  let(:api_key) { '111111' }
 
+  describe '#get_all' do
     let(:url) { BestBuy::BaseAPI::BASE_URL + TestCollections::TEST_COLLECTIONS_API }
     let(:search_query) { '' }
     let(:request_params) do
@@ -151,6 +151,42 @@ RSpec.describe BestBuy::BaseAPI do
           test_collections_api.get_all(pagination: { page: page, page_size: page_size })
 
           expect(stubbed_request).to have_been_requested
+        end
+      end
+    end
+  end
+
+  describe 'initialization' do
+    context 'when an api_key is passed as parameter' do
+      it 'the api_key is stored as an instance variable' do
+        test_collections_api = TestCollections.new(api_key)
+
+        expect(test_collections_api.api_key).to eq api_key
+      end
+    end
+
+    context 'when no api_key is passed as parameter' do
+      context 'and it has been added to the configuration' do
+        before do
+          BestBuy.configure do |config|
+            config.api_key = api_key
+          end
+        end
+
+        after do
+          BestBuy.reset_configuration
+        end
+
+        it 'the configured api_key is stored as an instance variable' do
+          test_collections_api = TestCollections.new
+
+          expect(test_collections_api.api_key).to eq api_key
+        end
+      end
+
+      context 'and it has not been added to the configuration' do
+        it 'an error is raised' do
+          expect { TestCollections.new }.to raise_error BestBuy::Exceptions::ApiKeyNotFound
         end
       end
     end

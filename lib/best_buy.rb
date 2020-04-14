@@ -6,6 +6,8 @@ require 'active_support/core_ext/module/delegation'
 require 'active_support/core_ext/string'
 require 'faraday'
 
+require 'best_buy/exceptions/api_key_not_found'
+
 require 'best_buy/helpers/api_helper'
 require 'best_buy/helpers/conditions/category_condition'
 require 'best_buy/helpers/conditions/max_price_condition'
@@ -14,6 +16,7 @@ require 'best_buy/helpers/conditions/new_condition'
 require 'best_buy/helpers/conditions/pre_owned_condition'
 require 'best_buy/helpers/conditions/refurbished_condition'
 
+require 'best_buy/config'
 require 'best_buy/base_api'
 require 'best_buy/categories'
 require 'best_buy/products'
@@ -31,4 +34,4 @@ require 'best_buy/models/product'
 require 'best_buy/models/shipping_level_of_service'
 require 'best_buy/models/store'
 
-require 'generators/best_buy/config/config_generator'
+require 'generators/best_buy/config/config_generator' if defined? Rails::Generators

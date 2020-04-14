@@ -6,6 +6,10 @@ module BestBuy
       yield config
     end
 
+    def reset_configuration
+      @config = Config.new
+    end
+
     def config
       @config ||= Config.new
     end
