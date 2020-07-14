@@ -9,14 +9,14 @@ require 'bundler/setup'
 require 'simplecov'
 require 'webmock/rspec'
 
+SimpleCov.start do
+  add_filter '/spec/'
+end
+
 require './lib/best_buy'
 require './spec/shared_contexts/categories'
 require './spec/shared_contexts/products'
 require './spec/shared_contexts/stores'
-
-SimpleCov.start do
-  add_filter '/spec/'
-end
 
 require 'best_buy/base'
 
